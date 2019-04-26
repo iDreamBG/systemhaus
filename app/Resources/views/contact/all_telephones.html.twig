@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table border="1">
+        <tr>
+            <td>Telephone</td>
+            <th>Type</th>
+            <th colspan="2">Options</th>
+        </tr>
+        {% for telephone in telephones %}
+            <tr>
+                <th>{{ telephone.number}}</th>
+                <th>{{ telephone.type}}</th>
+                <th><a href="{{ path('edit_phone', {'id': telephone.id})}}">Edit</a> </th>
+                <th><a href="{{ path('delete_phone', {'id': telephone.id})}}">Delete</a> </th>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+

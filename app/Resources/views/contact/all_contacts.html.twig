@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <a href="{{ path('contact_create') }}">Create new contact</a>
+
+
+<table border="1">
+    <tr>
+        <td>№</td>
+        <td>Name</td>
+        <th>Family</th>
+        <th>Data Add</th>
+        <th>Last Update</th>
+        <th>Telephones</th>
+        <th colspan="3">Options</th>
+    </tr>
+    {% for contact in contacts %}
+        <tr>
+            <th>{{ contact.id }}</th>
+            <th>{{ contact.name}}</th>
+            <th>{{ contact.fname}}</th>
+            <th>{{ contact.dateAdd|date("m/d/Y") }}</th>
+            <th>{{ contact.dateUpdate|date("m/d/Y") }}</th>
+            <th><a href="{{ path('view_telephones', {'id': contact.id}) }}">Telephones [ {{ contact.telephone.count }} ]</a> </th>
+            <th><a href="{{ path('add_phone', {'id': contact.id}) }}">Add Telephone</a> </th>
+            <th><a href="{{ path('edit_contact', {'id': contact.id}) }}">Edit contact</a> </th>
+            <th><a href="{{ path('delete_contact', {'id': contact.id}) }}">Delete contact</a> </th>
+
+
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

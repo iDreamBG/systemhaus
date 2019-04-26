@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('contact_create') }}" method="POST">
+        <legend>New contact</legend>
+
+        <label>Name</label>
+        <input placeholder="Name" name="contact[name]">
+
+        <label>Family</label>
+        <input placeholder="Family" name="contact[fname]">
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+        {{ form_row(form._token) }}
+    </form>
+
+{% endblock %}

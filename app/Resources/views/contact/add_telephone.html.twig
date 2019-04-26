@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('add_phone', {'id': currentContact.id}) }}" method="POST">
+        <legend>Add you phone</legend>
+
+        <label>Number</label>
+        <input placeholder="Number" name="telephone[number]">
+
+        <label>Type</label>
+        <input placeholder="Personal/Office" name="telephone[type]">
+
+
+
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+        {{ form_row(form._token) }}
+    </form>
+
+{% endblock %}
+

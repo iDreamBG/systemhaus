@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('edit_contact', {'id': contact.id}) }}" method="POST">
+        <legend>Edit contact</legend>
+
+        <label>Name</label>
+        <input placeholder="Name" name="contact[name]">
+
+        <label>Family</label>
+        <input placeholder="Family" name="contact[fname]">
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+
+        {{ form_row(form._token) }}
+    </form>
+{% endblock %}
