@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Contact
 {
+
+    const MIN_LENGTH = 3;
     /**
      * @var int
      *
@@ -99,9 +101,13 @@ class Contact
      * @param string $name
      *
      * @return Contact
+     * @throws \Exception
      */
     public function setName($name)
     {
+        if(strlen($name) < self::MIN_LENGTH){
+            throw new \Exception('Name must be 3 symbols minimum');
+        }
         $this->name = $name;
 
         return $this;
@@ -123,9 +129,14 @@ class Contact
      * @param string $fname
      *
      * @return Contact
+     * @throws \Exception
      */
     public function setFname($fname)
     {
+        if(strlen($fname) < self::MIN_LENGTH){
+            throw new \Exception('Family must be 3 symbols minimum');
+        }
+
         $this->fname = $fname;
 
         return $this;
